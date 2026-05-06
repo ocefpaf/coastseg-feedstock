@@ -43,9 +43,7 @@ requirements:
     # These are not in the package metadata.
     # Some are listed as pixi dependencies in pyproject.toml.
     - gdal >=3.8.4
-    - pytmd <2.2.0
     - area
-    - doodleverse-utils >=0.0.35
     - earthengine-api >=0.1.388
 
 tests:
