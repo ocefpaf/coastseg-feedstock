@@ -42,7 +42,6 @@ requirements:
     - netcdf4
     # These are not in the package metadata.
     # Some are listed as pixi dependencies in pyproject.toml.
-    - numpy ==1.23.5
     - gdal >=3.8.4
     - pytmd <2.2.0
     - area
