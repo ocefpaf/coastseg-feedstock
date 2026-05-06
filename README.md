@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/coastseg-feedst
 
 Home: https://github.com/SatelliteShorelines/CoastSeg
 
-Package license: MIT
+Package license: GPL-3.0-only
 
 Summary: An interactive python package for satellite derived shoreline workflows
 

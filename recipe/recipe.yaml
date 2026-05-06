@@ -1,0 +1,70 @@
+schema_version: 1
+
+context:
+  version: "2.0.2"
+
+package:
+  name: coastseg
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/C/CoastSeg/coastseg-${{ version }}.tar.gz
+  sha256: 1dcbdfc6760761b5a5960848e1a3aa69f20143fcb522746db7ebdd315fb9fb3b
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*,<3.13
+    - hatchling
+    - pip
+  run:
+    - python ${{ python_min }}.*,<3.13
+    - aiohttp
+    - onnxruntime
+    - chardet
+    - dask-core
+    - coastsat-package >=0.3.3
+    - geojson
+    - geopandas-base
+    - h5py
+    - jupyterlab >=3.0.0
+    - leafmap
+    - nest-asyncio
+    - pooch
+    - protobuf
+    - pytmd <2.2.0
+    - xarray
+    - pytz
+    - netcdf4
+    # These are not in the package metadata.
+    # Some are listed as pixi dependencies in pyproject.toml.
+    - gdal >=3.8.4
+    - area
+    - earthengine-api >=0.1.388
+
+tests:
+  - python:
+      imports:
+        - coastseg
+      # bogus requirement on versioneer in doodleverse_utils
+      pip_check: false
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  homepage: https://github.com/SatelliteShorelines/CoastSeg
+  summary: An interactive python package for satellite derived shoreline workflows
+  license: GPL-3.0-only
+  license_file: LICENSE
+  documentation: https://satelliteshorelines.github.io/CoastSeg/
+  repository: https://github.com/SatelliteShorelines/CoastSeg
+
+extra:
+  recipe-maintainers:
+    - 2320sharon
+    - ocefpaf
